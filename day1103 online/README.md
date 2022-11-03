@@ -31,7 +31,7 @@ Vue→CSR→SPA
 
 - Direct <script> include
     - download
-    - CDN: <script src="[https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js](https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js)"></script>
+    - CDN: <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 - npm
 - CLI
 
@@ -85,7 +85,7 @@ Vue→CSR→SPA
 
 ### 보간법(Interpolation)
 
-<a href=”test04.html”>test04.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test04.html">test04.html</a>
 
 #### 문자열
 
@@ -103,7 +103,7 @@ Vue→CSR→SPA
 
 ### 원시 HTML
 
-<a href=”test05.html”>test05.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test05.html">test05.html</a>
 
 - 이중 중괄호(mustaches)는 HTML이 아닌 일반 텍스트로 데이터를 해석
 - 실제 HTML을 출력하려면 v-html 디렉티브를 사용
@@ -116,7 +116,7 @@ Vue→CSR→SPA
 
 ### JavaScript 표현식 사용
 
-<a href=”test06.html”>test06.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test06.html">test06.html</a>
 
 - Vue.js는 모든 데이터 바인딩 내에서 JavaScript 표현식의 모든 기능을 지원
 
@@ -149,27 +149,27 @@ Vue→CSR→SPA
 
 #### v-model⭐⭐⭐
 
-<a href=”test07.html”>test07.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test07.html">test07.html</a>
 
 - 양방향 바인딩 처리를 위해 사용(form의 input, textarea)
 
 #### v-bind
 
-<a href=”test08.html”>test08.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test08.html">test08.html</a>
 
 - 엘리먼트의 속성과 바인딩 처리를 위해서 사용
 - v-bind는 약어로 “:”로 사용 가능
 
 #### v-show
 
-<a href=”test09.html”>test09.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test09.html">test09.html</a>
 
 - 조건에 따라 엘리먼트를 화면에 출력
 - style의 display를 변경
 
 #### v-if, v-else-if, v-else
 
-<a href=”test10.html”>test10.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test10.html">test10.html</a>
 
 - 조건에 따라 엘리먼트를 화면에 렌더링
 
@@ -184,25 +184,25 @@ Vue→CSR→SPA
 
 #### v-for
 
-<a href=”test12.html”>test12.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test12.html">test12.html</a>
 
-<a href=”test13.html”>test13.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test13.html">test13.html</a>
 
-<a href=”test14.html”>test14.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test14.html">test14.html</a>
 
 - 배열이나 객체의 반복에 사용
 - v-for=”요소변수이름 in 배열” v-for=”(요소변수이름, 인덱스) in 배열”
 
 #### template
 
-<a href=”test15.html”>test15.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test15.html">test15.html</a>
 
 - 여러 개의 태그들을 묶어서 처리해야 할 경우 template을 사용
 - v-if, v-for, component등과 함께 많이 사용
 
 #### v-cloak
 
-<a href=”test16.html”>test16.html</a>
+<a href="https://github.com/kosy318/VueBasic/blob/main/day1103%20online/1103_%EB%B0%B0%ED%8F%AC/test16.html">test16.html</a>
 
 - Vue Instance가 준비될 때까지 mustache 바인딩을 숨기는 데 사용
 - [v-cloak]{display: none}과 같은 CSS 규칙과 함께 사용
