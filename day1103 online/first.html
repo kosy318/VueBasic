@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. vue cdn 표시 -->
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<!-- 실행 순서
+  1. 뷰 라이브러리 로딩
+  2. 화면 요소 생성(html tag로 구성한 부분) - DOM
+  3. 뷰 인스턴스 생성 - new Vue();
+  4. 화면과 뷰 인스턴스가 연결이 됨(el로 지정한 부분)
+  5. 화면이 전환(데이터가 치환됨) - 콧수염괄호 부분에 데이터가 들어감
+  6. 화면으로 확인 
+
+-->
+
+<body>
+  <!-- 2. view: 화면 요소-->
+  <div id="app">
+    <!-- vue 객체가 가지고 있는 데이터를 텍스트 형식으로 출력 -->
+    {{ age }} -- {{ name }}
+    <br>
+    address : {{ address }}
+  </div>
+
+  <!-- 3. model: logic & data -->
+  <script>
+    // vm(ViewModel)
+    var vm = new Vue({
+      el: "#app", // vue 객체가 관리하는 화면 요소
+      data: {
+        age: 25,
+        name: "tommy lee",
+        address: "london",
+      },
+    });
+  </script>
+</body>
+
+</html>

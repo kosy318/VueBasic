@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: "hello, vue!"
+      },
+
+      // life cycle hook
+      // vue 객체가 화면에 추가(연결) 되기 전. data, method...아직 접근 안됨
+      beforeCreate() {
+        console.log('beforeCreate', this.message);
+      },
+
+      // vue 객체가 생성된 후. data, method...접근 됨
+      created() {
+        console.log('created', this.message);
+      },
+
+      // 가상 돔 내용이 실제 돔에 부착되고 난 후에 호출됨.
+      mounted() {
+        console.log('mounted', this.message);
+      },
+
+      // 맨처음 가상 돔을 렌더링 하고 나서 변경된 데이터가 실제 돔에 반영된 후에 호출.
+      updated() {
+        console.log('updated', this.message);
+      },
+    });
+  </script>
+</body>
+
+</html>

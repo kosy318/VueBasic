@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <textarea name="ta" id="ta" cols="30" rows="2" v-model="message"></textarea>
+    <h1 v-if="!message">no message</h1>
+    <h1 v-else-if="message == 'qqq'">fool</h1>
+    <h1 v-else>{{message}}</h1>
+    <hr>
+    <br>
+    <input type="text" v-model="id">
+    <h3 v-if="!id">아이디를 입력해주세요!!</h3>
+    <h3 v-else-if="id == 'tommy'">사용 중인 아이디입니다ㅠㅠ</h3>
+    <h3 v-else>사용가능한 아이디입니다.</h3>
+    <h4>id 길이 : {{id.length}}</h4>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: 'vue is my life!!!',
+        id: '',
+      },
+    });
+  </script>
+</body>
+
+</html>

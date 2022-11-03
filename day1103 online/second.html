@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ code }}
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        code: "a123",
+      },
+      template: "<h1>hello, vue!</h1>", // vue 객체의 화면 요소 콧수염괄호의 값이 덮어쓰기 된다.
+      methods: {
+
+      },
+      filters: {
+
+      },
+      computed: {
+
+      },
+    });
+  </script>
+</body>
+
+</html>
