@@ -1,5 +1,3 @@
-# 11/03 Vue.js
-
 # Vue.js
 
 Vue→CSR→SPA
