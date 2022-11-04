@@ -1,80 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://unpkg.com/vue@2"></script>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://unpkg.com/vue@2"></script>
-</head>
-
-<body>
-  <!--  directive:
+    <body>
+        <!--  directive:
     태그 안에서 v-로 시작하는 속성들. 화면 요소를 좀 더 쉽게 조작하기 위해서 사용
     v- bind, v-if, v-show, v-for, v-text, v-html, v-on, v-else, v-else-if, v-model ...
   -->
-  <div id="app">
-    <div>
-      <h2 v-pre>{{ 그대로 출력해주세요. msg}}</h2>
-      <span>text: {{msg}}</span>
-    </div>
-    <hr>
-    <div v-text="msg"></div>
-    <div v-html="msg"></div>
-    <hr>
-    <!-- 조건에 맞지 않으면 주석처리되어 화면에 보이지 않음 -->
-    <a href="#" v-if="num < 20">gogo, vue!</a>
-    <a href="#" v-else-if="num < 50">bye, vue!</a>
-    <a href="#" v-else>sleep, vue!</a>
-    <!-- 조건에 맞지 않으면 display:none;으로 화면에 보이지 않음 -->
-    <a href="#" v-show="flag1">fly, vue!</a>
-    <hr>
+        <div id="app">
+            <div>
+                <h2 v-pre>{{ 그대로 출력해주세요. msg}}</h2>
+                <span>text: {{msg}}</span>
+            </div>
+            <hr />
+            <div v-text="msg"></div>
+            <div v-html="msg"></div>
+            <hr />
+            <!-- v-if: 조건이 거짓인 경우 태그가 주석으로 처리됨.
+                v-show: 조건이 거짓인 경우 display:none으로 조정함 -->
 
-    <ul>
-      <li v-for="system in systems">
-        {{system}}
-      </li>
-    </ul>
+            <!-- v-if: 조건에 맞지 않으면 주석처리되어 화면에 보이지 않음 -->
+            <a href="#" v-if="num < 20">gogo, vue!</a>
+            <a href="#" v-else-if="num < 50">bye, vue!</a>
+            <a href="#" v-else>sleep, vue!</a>
+            <!-- v-show: 조건에 맞지 않으면 display:none;으로 화면에 보이지 않음 -->
+            <a href="#" v-show="flag1">fly, vue!</a>
+            <hr />
 
-    <!-- v-bind: 원래 태그가 가지는 속성과 뷰객체의 데이터를 연결 시킬 때 -->
-    <h5 v-bind:id="uid">vue day-1</h5>
-    <h6 :id="uid2">vue day-1</h6>
+            <ul>
+                <li v-for="system in systems">{{system}}</li>
+            </ul>
 
-    <span><img :src="src" alt="블라우스1" width="300">
-      <img :src="src2" alt="블라우스2" width="300"></span>
-    <hr>
+            <!-- v-bind: 원래 태그가 가지는 속성과 뷰객체의 데이터를 연결 시킬 때 -->
+            <h5 v-bind:id="uid">vue day-1</h5>
+            <h6 :id="uid2">vue day-1</h6>
 
-    <!-- v-on: 이벤트 등록 -->
-    <button v-on:click="hello1">파랑 블라우스</button>
-    <button @click="hello2">바이올렛 블라우스</button>
+            <span
+                ><img :src="src" alt="블라우스1" width="300" />
+                <img :src="src2" alt="블라우스2" width="300"
+            /></span>
+            <hr />
 
-  </div>
-  <script>
-    var vm = new Vue({
-      el: "#app",
-      data: {
-        num: 125,
-        flag1: false,
-        flag2: true,
-        systems: ['android', 'ios', 'windows'],
-        uid: 'a100',
-        uid2: 'a200',
-        msg: '<h1>welcome, vue!!!</h1>',
-        src: './img/blueBlouse.jpg',
-        src2: './img/violetBlouse.jpg'
-
-      },
-      methods: {
-        hello1() {
-          window.alert("파랑 블라우스 클릭!!!");
-        },
-        hello2() {
-          window.alert("바이올렛 블라우스 클릭!!!");
-        },
-      },
-    });
-  </script>
-</body>
-
+            <!-- v-on: 이벤트 등록 -->
+            <button v-on:click="hello1">파랑 블라우스</button>
+            <button @click="hello2">바이올렛 블라우스</button>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    num: 125,
+                    flag1: false,
+                    flag2: true,
+                    systems: ["android", "ios", "windows"],
+                    uid: "a100",
+                    uid2: "a200",
+                    msg: "<h1>welcome, vue!!!</h1>",
+                    src: "./img/blueBlouse.jpg",
+                    src2: "./img/violetBlouse.jpg",
+                },
+                methods: {
+                    hello1() {
+                        window.alert("파랑 블라우스 클릭!!!");
+                    },
+                    hello2() {
+                        window.alert("바이올렛 블라우스 클릭!!!");
+                    },
+                },
+            });
+        </script>
+    </body>
 </html>
