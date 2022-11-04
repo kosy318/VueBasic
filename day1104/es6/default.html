@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // rest parameter(가변 파라미터)
+            // favoriteFood: 배열 형식으로 받음
+            function test(num, name, ...favoriteFood) {
+                console.log(num, name);
+                console.log(favoriteFood);
+            }
+            test(1, "tom", "장어");
+            test(1, "jane", "로제떡볶이", "아.아.");
+            test(1, "tome", "바나나", "오렌지", "사과");
+
+            // default parameter
+            function go(msg) {
+                console.log(msg);
+            }
+
+            go("will you go?");
+            go(); // undefined
+
+            function go2(msg = "default message") {
+                console.log(msg);
+            }
+            go2("잘 되나요?", "2222");
+            go2();
+        </script>
+    </body>
+</html>

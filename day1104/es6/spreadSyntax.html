@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- spread syntax : ... 전개 구문 -->
+        <script>
+            let arr1 = [100, 200, 300];
+            let arr2 = [...arr1]; // copy
+            console.log(arr2);
+
+            let arr3 = ["orange", "banana"];
+            let arr4 = [...arr1, ...arr3]; // merge
+            console.log(arr4);
+
+            let arr5 = [...arr1, "kim", "lee"];
+            console.log(arr5);
+        </script>
+    </body>
+</html>
