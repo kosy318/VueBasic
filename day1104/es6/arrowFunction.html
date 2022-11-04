@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function sum(a, b) {
+                return a + b;
+            }
+
+            console.log(sum(3, 5));
+
+            let f1 = function (a, b) {
+                console.log(a + b);
+            };
+            f1(3, 9);
+
+            const f2 = (a, b) => {
+                console.log(a + b);
+            };
+            f2(4, 5);
+
+            const f3 = (num) => {
+                return ++num;
+            };
+            console.log(f3(0));
+
+            const square = (num) => num * num;
+            console.log(square(4));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <title>Insert title here</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1>calculator</h1>
+            <form class="form-inline">
+                <!-- v-model: 사용자가 입력 가능한 대상한테 주로 쓰임 -->
+                <input class="form-control" v-model.number="num1" />
+                <select class="form-control" v-model="selected">
+                    <option selected>+</option>
+                    <option>-</option>
+                    <option>*</option>
+                    <option>/</option>
+                </select>
+                <input class="form-control" v-model.number="num2" />
+                <button class="btn btn-primary" type="submit" @click.prevent="calc">
+                    calculate!
+                </button>
+            </form>
+            <h2>result: {{ result }}</h2>
+        </div>
+
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                data: {
+                    num1: 0,
+                    num2: 0,
+                    selected: "+",
+                    result: 0,
+                },
+                methods: {
+                    calc() {
+                        switch (this.selected) {
+                            case "+":
+                                this.result = this.num1 + this.num2;
+                                break;
+                            case "-":
+                                this.result = this.num1 - this.num2;
+                                break;
+                            case "*":
+                                this.result = this.num1 * this.num2;
+                                break;
+                            case "/":
+                                this.result = this.num1 / this.num2;
+                                break;
+                        }
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

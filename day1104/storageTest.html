@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <script>
+            localStorage.setItem("code", "blue"); // key, value
+            localStorage.setItem("name", "harry"); // key, value
+
+            // console.log(localStorage.getItem("code"));
+            // console.log(localStorage.getItem("name"));
+
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                console.log(localStorage.getItem(key));
+            }
+
+            localStorage.clear(); // remove all data
+        </script>
+    </body>
+</html>
