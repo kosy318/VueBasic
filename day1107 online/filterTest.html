@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{ message }}</p>
+            <!-- filter : 왼쪽 데이터를 오른쪽 filter로 가공해서 목적에 맞게 알맞은 값이나 형식으로 바꿔줌 
+            메소드 형식이지만 사용시에는 속성-->
+            <p>{{ message | loop3 }}</p>
+            <p>{{ message | toUpper }}</p>
+        </div>
+        <script>
+            let model = { message: "hello, vue!" };
+            new Vue({
+                el: "#app",
+                data: model,
+                filters: {
+                    // value: 필터 적용 전의 값
+                    loop3(value) {
+                        let str = "";
+                        for (let i = 0; i < 3; i++) str += value;
+                        return str;
+                    },
+                    toUpper(value) {
+                        return value.toUpperCase();
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
