@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <child-compo></child-compo>
+        </div>
+
+        <script>
+            let bus = new Vue(); // 이벤트 처리용 객체
+
+            Vue.component("child-compo", {
+                template: "<button @click='showLog'>press</button>",
+                methods: {
+                    showLog() {
+                        // 이벤트 발생
+                        bus.$emit("trigger", 300);
+                    },
+                },
+            });
+
+            new Vue({
+                el: "#app",
+                created() {
+                    // 이벤트 처리 등록
+                    bus.$on("trigger", function (val) {
+                        alert(val);
+                    });
+                },
+            });
+        </script>
+    </body>
+</html>

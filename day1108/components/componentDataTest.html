@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <child-compo :msg="msg"></child-compo>
+            <child-compo :msg="msg"></child-compo>
+        </div>
+
+        <template id="child-template">
+            <div>
+                <button @click="countUp()">{{ msg }} - {{ num }}</button>
+            </div>
+        </template>
+
+        <script>
+            Vue.component("child-compo", {
+                template: "#child-template",
+                props: ["msg"],
+                data() {
+                    // 컴포넌트의 데이터는 메소드 형식이어야함
+                    return {
+                        num: 0,
+                    };
+                },
+                methods: {
+                    countUp() {
+                        this.num += 1;
+                    },
+                },
+            });
+
+            new Vue({
+                el: "#app",
+                data: {
+                    msg: "I am your mother!",
+                },
+            });
+        </script>
+    </body>
+</html>

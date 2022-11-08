@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-global></my-global>
+            <my-global></my-global>
+            <my-local></my-local>
+        </div>
+        <hr />
+        <div id="other">
+            <my-global></my-global>
+        </div>
+        <script>
+            // 전역 컴포넌트 등록
+            Vue.component("my-global", {
+                template: `<div>
+                                <h1>my-global 컴포넌트 입니다</h1>
+                            </div>`, // 화면, 가지는 root element가 하나여야함
+            });
+
+            new Vue({
+                el: "#app",
+                components: {
+                    // 지역 컴포넌트 등록
+                    "my-local": {
+                        template: `<div><h3>my-local 컴포넌트 입니다.</h3></div>`,
+                    },
+                },
+            });
+            new Vue({
+                el: "#other",
+            });
+        </script>
+    </body>
+</html>
