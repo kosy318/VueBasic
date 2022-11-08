@@ -179,7 +179,7 @@
 multiple : <a href="https://github.com/kosy318/VueBasic/blob/main/day1107%20online/1107_%EB%B0%B0%ED%8F%AC/vueinstance/test38.html">test38.html</a>
 
 - select box일 경우 선택된 항목의 value 속성의 값을 관리
-- 'v-model' 표현식의 초기 값이 어떤 옵션에도 없으면, '<select>'element는 "선택없음"상태로 렌더링된다.
+- 'v-model' 표현식의 초기 값이 어떤 옵션에도 없으면, '\<select\>'element는 "선택없음"상태로 렌더링된다
 - v-for를 이용한 동적 option 렌더링
 
 
