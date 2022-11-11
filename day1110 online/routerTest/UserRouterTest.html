@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>어플리케이션에서 라우팅</title>
+    <script>
+      var userData = [
+        {
+          id: 1,
+          name: "Tommy Lee",
+          description: "한국에서 일하는 프론트엔드 엔지니어입니다.",
+        },
+        {
+          id: 2,
+          name: "Jane Kim",
+          description: "아웃도어, 풋살이 취미인 프로그래머입니다.",
+        },
+        {
+          id: 3,
+          name: "Harry Porter",
+          description: "마법이 취미인 데이터 분석가입니다.",
+        },
+      ];
+    </script>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vue-router@3"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <nav>
+        <router-link to="/top">최상위 페이지</router-link>
+        <router-link to="/users">사용자 목록</router-link>
+      </nav>
+      <router-view></router-view>
+    </div>
+
+    <!-- 사용자 목록 페이지 템플릿 -->
+    <template id="user-list">
+      <div>
+        <table>
+					<tr>
+						<th>아이디</th>
+						<th>이름</th>
+					</tr>
+          <tr v-for="user in users" :key="user.id">
+            <td>{{user.id}}</router-link></th>
+            <td><router-link :to="`/users/${user.id}`">{{user.name}}</router-link></td>
+          </tr>
+        </table>
+      </div>
+    </template>
+
+		<template id="user-view">
+			<div>
+				<h2>{{ user.name }}</h2>
+				<div>{{ user.description }}</div> 
+			</div>
+		</template>
+
+    <script>
+      //UserList 컴포넌트- 사용자 목록
+      let UserList = {
+        template: "#user-list",
+        data() {
+          return {
+            users: [],
+          };
+        },
+        created() {
+          this.getData();
+        },
+        methods: {
+          getData() {
+            this.users = userData;
+          },
+        },
+      };
+
+      let UserView = {
+        template: "#user-view",
+				data(){
+					return {
+						user: {},
+					}
+				},
+				created(){
+					this.userView();
+				},
+				methods: {
+					userView(){
+						userData.forEach(item => {
+							let id = this.$route.params.id;
+							if(item.id == id)
+								this.user = item;
+						})
+					}
+				}
+      };
+
+      // 라우터: 각 라우트(경로)에 컴포넌트를 매핑
+      let router = new VueRouter({
+        routes: [
+          {
+            path: "/top",
+            component: {
+              template: "<div>최상위 페이지 입니다.</div>",
+            },
+          },
+          {
+            path: "/users",
+            component: UserList,
+          },
+          {
+            path: "/users/:id",
+            component: UserView,
+          },
+          {
+            path: "*", // 정의되지 않은 route
+            component: {
+              redirect: "/top",
+            },
+          },
+        ],
+      });
+
+      // Vue 객체생성 후 라우터 등록
+      let app = new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>
