@@ -49,10 +49,15 @@ export default {
   },
   methods: {
     addTodo() {
-      // 원래는 actions를 호출해서 서버에 비동기 호출을해야함
-      // 지금은 mutations를 호출해서 데이터만 추가
+      // actions를 호출해서 서버에 비동기 호출
+      // mutations를 호출해서 데이터만 추가
 
-      this.$store.commit(Constant.ADD_TODO, { todo: this.todo });
+      this.$store.dispatch(Constant.ADD_TODO, {
+        id: "ssafy",
+        content: this.todo,
+        sdate: "2022-11-15",
+        edate: "2022-11-15",
+      });
     },
   },
 };

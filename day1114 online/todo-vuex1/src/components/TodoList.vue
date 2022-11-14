@@ -52,7 +52,9 @@ ul li.checked::before {
 <template>
   <ul id="todolist">
     <li v-for="a in todolist" :key="a.num" :class="checked(a.done)">
-      <span>{{ a.content }}</span>
+      <span v-if="a.done == 'Y'" @click="doneToggle({ num: a.num, done: a.done })">★</span>
+      <span v-else @click="doneToggle({ num: a.num, done: a.done })">☆</span>
+      <span> {{ a.content }}</span>
       <span v-if="a.done == 'Y'"> ✅</span>
       <span class="close" @click.stop="deleteTodo({ num: a.num })">&#x00D7;</span>
     </li>
@@ -60,6 +62,7 @@ ul li.checked::before {
 </template>
 <script type="text/javascript">
 import { mapState } from "vuex";
+import { mapActions } from "vuex";
 import Constant from "../util/Constant";
 
 export default {
