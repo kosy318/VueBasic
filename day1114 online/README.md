@@ -1,5 +1,3 @@
-# 11/14 Vuex
-
 ### vuex
 
 - Vue.js application에 대한 상태관리패턴(data) + 라이브러리
