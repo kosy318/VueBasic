@@ -1,5 +1,3 @@
-# 11/10 Vue - axios
-
 # axios
 
 ### HTTP 통신 : axios
