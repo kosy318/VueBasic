@@ -11,10 +11,16 @@ const store = new Vuex.Store({
   state: {
     todolist: [],
   },
+  getters: {
+    getTodoList(state) {
+      return state.todolist;
+    },
+  },
   actions: {
-    [Constant.ADD_TODO]: ({ commit }, todo) => {
-      http.post("/todo", todo).then((response) => {
-        commit(Constant.ADD_TODO, { todo, num: response.data });
+    [Constant.ADD_TODO]: ({ commit }, payload) => {
+      console.log(payload);
+      http.post("/todo", payload).then((response) => {
+        commit(Constant.ADD_TODO, { todo: payload, num: response.data });
       });
     },
     [Constant.ALL_TODO]: ({ commit }) => {
@@ -22,21 +28,21 @@ const store = new Vuex.Store({
         commit(Constant.ALL_TODO, { todolist: response.data });
       });
     },
-    [Constant.DELETE_TODO]: ({ dispatch }, todo) => {
-      http.delete("/todo/" + todo.num).then(() => {
-        dispatch(Constant.ALL_TODO);
+    [Constant.DELETE_TODO]: ({ dispatch }, payload) => {
+      http.delete("/todo/" + payload.num).then(() => {
+        dispatch(Constant.ALL_TODO); // 다시 selectAll하라고 시킴
       });
     },
-    [Constant.DONE_TOGGLE]: ({ commit }, todo) => {
-      console.log(todo);
-      http.put("/todo/" + todo.num + "/" + todo.done).then(() => {
-        commit(Constant.DONE_TOGGLE, { num: todo.num });
+    [Constant.DONE_TOGGLE]: ({ commit }, payload) => {
+      // console.log(payload);
+      http.put("/todo/" + payload.num + "/" + payload.done).then(() => {
+        commit(Constant.DONE_TOGGLE, { num: payload.num });
       });
     },
   }, // 비동기 호출
   mutations: {
     // 실제로 데이터에 접근해 수정할 수 있음
-    addTodo: (state, payload) => {
+    [Constant.ADD_TODO]: (state, payload) => {
       state.todolist.push({ num: payload.num, content: payload.todo.content, done: false });
     },
     [Constant.ALL_TODO]: (state, payload) => {

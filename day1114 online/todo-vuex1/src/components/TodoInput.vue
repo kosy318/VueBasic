@@ -32,33 +32,47 @@
       class="input"
       type="text"
       id="task"
-      v-model.trim="todo"
+      v-model.trim="content"
       placeholder="입력 후 엔터!"
-      v-on:keyup.enter="addTodo"
+      v-on:keyup.enter="
+        addTodo({ id: 'ssafy', content, sdate: '2022-11-15', edate: '2022-11-15' });
+        content = '';
+      "
+      autofocus
     />
-    <span class="addbutton" v-on:click="addTodo">추 가</span>
+    <div
+      class="addbutton"
+      v-on:click="
+        addTodo({ id: 'ssafy', content, sdate: '2022-11-15', edate: '2022-11-15' });
+        content = '';
+      "
+    >
+      추 가
+    </div>
   </div>
 </template>
 <script type="text/javascript">
 import Constant from "../util/Constant";
+import { mapActions } from "vuex";
 
 export default {
   name: "TodoInput",
   data: function () {
-    return { todo: "" };
+    return { content: "" };
   },
   methods: {
-    addTodo() {
-      // actions를 호출해서 서버에 비동기 호출
-      // mutations를 호출해서 데이터만 추가
+    ...mapActions([Constant.ADD_TODO]),
+    // addTodo() {
+    //   // actions를 호출해서 서버에 비동기 호출
+    //   // mutations를 호출해서 데이터만 추가
 
-      this.$store.dispatch(Constant.ADD_TODO, {
-        id: "ssafy",
-        content: this.todo,
-        sdate: "2022-11-15",
-        edate: "2022-11-15",
-      });
-    },
+    //   this.$store.dispatch(Constant.ADD_TODO, {
+    //     id: "ssafy",
+    //     content: this.content,
+    //     sdate: "2022-11-15",
+    //     edate: "2022-11-15",
+    //   });
+    // },
   },
 };
 </script>

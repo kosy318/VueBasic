@@ -51,18 +51,22 @@ ul li.checked::before {
 </style>
 <template>
   <ul id="todolist">
-    <li v-for="a in todolist" :key="a.num" :class="checked(a.done)">
-      <span v-if="a.done == 'Y'" @click="doneToggle({ num: a.num, done: a.done })">★</span>
-      <span v-else @click="doneToggle({ num: a.num, done: a.done })">☆</span>
-      <span> {{ a.content }}</span>
+    <li v-for="a in getTodoList" :key="a.num" :class="{ checked: a.done == 'Y' }">
+      <!-- click.stop 해당하는 이벤트만 하고 안전하게 끝나게 하는 것 -->
+      <!-- event.target.tagName : 태그 이름
+          this.tagName : 버블링된 태그 이름 
+          상위 태그까지 이벤트가 올라갈 수 있다-->
+      <span v-if="a.done == 'Y'" @click.stop="doneToggle({ num: a.num, done: a.done })"> ★ </span>
+      <span v-else @click.stop="doneToggle({ num: a.num, done: a.done })"> ☆ </span>
+      <span>{{ a.content }}</span>
       <span v-if="a.done == 'Y'"> ✅</span>
       <span class="close" @click.stop="deleteTodo({ num: a.num })">&#x00D7;</span>
     </li>
   </ul>
 </template>
 <script type="text/javascript">
-import { mapState } from "vuex";
-import { mapActions } from "vuex";
+// import { mapState } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Constant from "../util/Constant";
 
 export default {
@@ -71,9 +75,11 @@ export default {
     // 서버로부터 데이터 받아오기
     this.$store.dispatch(Constant.ALL_TODO); // action call
   },
+  // mapGetters로 대체
+  computed: { ...mapGetters(["getTodoList"]) },
   // data에 관심이 있어서 State!!
   // store안의 state 값 중에서 'todolist'에 관심이 있음
-  computed: mapState(["todolist"]),
+  // computed: mapState(["todolist"]),
   //   computed: {
   //     todolist() {
   //       return this.$store.state.todolist;
@@ -83,6 +89,7 @@ export default {
     checked() {},
     // 완료로 바꿔주는 것
     // doneToggle() {},
+
     // x 버튼 누르면 삭제
     // deleteTodo() {this.$store.dispatch(Constant.DELETE_TODO);},
     // store 안 actions에 관심이 있음
